@@ -4,6 +4,9 @@ import TopHeader from "../Component/Headers/TopHeaser"
 import MiddelHeader from "../Component/Headers/MiddleHeader"
 import BottomHeader from "../Component/Headers/BottomHeader"
 import Foter from "../Component/Foter/Foter"
+import ProviderLayout from "../components/Redux/ProviderLayout"
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,11 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TopHeader/>
-        <MiddelHeader/>
-        <BottomHeader/>
-          {children}
-        <Foter/>
+         <ProviderLayout>
+            <TopHeader/>
+            <MiddelHeader/>
+            <BottomHeader/>
+              {children}
+            <Foter/>
+        </ProviderLayout> 
         </body>
     </html>
   );

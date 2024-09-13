@@ -1,14 +1,39 @@
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import { FaStar } from "react-icons/fa";
-
+import { IoCartOutline } from "react-icons/io5";
+import { useSelector, useDispatch } from 'react-redux'
+import {addTocart} from "../Redux/slice"
+import { useEffect } from 'react';
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
+ 
 const Card = ({item}) => {
-    const {images, category,description, price,discountPercentage} = item
+    const {images, category,description, price,discountPercentage} = item 
+    const addCartDispatch = useDispatch()
+    const userData = useSelector((state)=>state)
+    useEffect(()=>{
+        console.log(userData)
+    })
   return (
     <div>
         <div className="content border rounded-md group hover:shadow-2xl duration-300 cursor-pointer">
-            <div className="image h-[200px] overflow-hidden">
-                <Image className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
+            <div className="image h-[200px] relative overflow-hidden group">
+                <Image lazy="loading" className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
+                 <div className="hover-icon absolute bottom-8 right-[-50px] group-hover:right-4 duration-300 flex flex-col bg-white shadow-lg border">
+                    <div onClick={()=>addCartDispatch(addTocart({
+                        name:category,
+                    }))} className="cart-icon p-2 w-full border-b-2 flex justify-between items-center">
+                        <IoCartOutline className="text-xl  w-full" />
+                    </div>
+                    <div className="eye p-2 w-full border-b-2 flex justify-between items-center">
+                       <FaRegEye className="text-xl " />
+                    </div>
+                    <div className="eye p-2 flex justify-between items-center">
+                       <FaRegHeart className="text-xl" />
+                    </div>
+                 </div>
             </div>
             <div className="border"></div>
             <div className="desc m-6">

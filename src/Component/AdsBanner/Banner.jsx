@@ -4,13 +4,6 @@ import { IoArrowForwardSharp } from "react-icons/io5";
 const Banner = () => {
 
 
-useEffect(()=>{
-    const handleScroll =()=>{
-        console.log("hoccay")
-    } 
-    window.addEventListener('scroll', handleScroll);
-    
-})
 
   return (
     <div>

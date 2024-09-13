@@ -17,7 +17,7 @@ const MiddleHeader = () => {
                     </div>
                </Link>
             </div>
-            <div className="flex-1 my-8">
+            <div className="flex-1 my-4">
                  <div className="content">
                     <div className="input-area mx-[100px] flex justify-between items-center border-2 border-[#0989ff]">
                         <div className="flex-1 border-r-2 ">
