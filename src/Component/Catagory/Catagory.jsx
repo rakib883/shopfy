@@ -1,23 +1,6 @@
 import Image from 'next/image';
-import { GetData } from '../../lib/GetData';
 
 
-// Lash Princess data area
-const incomingData = "http://localhost:3000/api/beauty"
-const responseData = await GetData(incomingData)
-
-// fragrances area start
-const fragrancesData = "http://localhost:3000/api/fragrances"
-const fragranceData = await GetData(fragrancesData)
-
-
-// furnutureData area start
-const furnutureData = "http://localhost:3000/api/furniture"
-const furnutureResponse = await GetData(furnutureData)
-
-// groceries area startr
-const groceriesData = "http://localhost:3000/api/groceries"
-const grocerResponse = await GetData(groceriesData)
 
 const Catagory = () => {
   return (
@@ -30,7 +13,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">Beuty</p>
-                         <p className=" font-semibold">{responseData.length} products</p>
+                         <p className=" font-semibold"> products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -39,7 +22,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">Fragrances</p>
-                         <p className=" font-semibold">{fragranceData.length} products</p>
+                         <p className=" font-semibold"> products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -48,7 +31,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">furniture</p>
-                         <p className=" font-semibold">{furnutureResponse.length} products</p>
+                         <p className=" font-semibold"> products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -57,7 +40,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">groceries</p>
-                         <p className=" font-semibold">{grocerResponse.length} products</p>
+                         <p className=" font-semibold">products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">

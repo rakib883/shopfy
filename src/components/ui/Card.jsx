@@ -8,26 +8,34 @@ import {addTocart} from "../Redux/slice"
 import { useEffect } from 'react';
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
+import Link from 'next/link';
+import PriceFormat from "../ui/PriceFormat"
  
 const Card = ({item}) => {
-    const {images, category,description, price,discountPercentage} = item 
+    const {images, category,description, price,discountPercentage,id} = item 
     const addCartDispatch = useDispatch()
     const userData = useSelector((state)=>state)
     useEffect(()=>{
         console.log(userData)
     })
+    console.log("hello",id)
   return (
     <div>
-        <div className="content border rounded-md group hover:shadow-2xl duration-300 cursor-pointer">
+        <div className="content border rounded-md group hover:shadow-2xl duration-300 cursor-pointer ">
             <div className="image h-[200px] relative overflow-hidden group">
-                <Image lazy="loading" className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
+                <Link href={{
+                    pathname:`/single-product/${id}`,
+                    query:{id:id}
+                }}>
+                    <Image className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
+                </Link>
                  <div className="hover-icon absolute bottom-8 right-[-50px] group-hover:right-4 duration-300 flex flex-col bg-white shadow-lg border">
                     <div onClick={()=>addCartDispatch(addTocart({
                         name:category,
                     }))} className="cart-icon p-2 w-full border-b-2 flex justify-between items-center">
                         <IoCartOutline className="text-xl  w-full" />
                     </div>
-                    <div className="eye p-2 w-full border-b-2 flex justify-between items-center">
+                    <div className="eye p-2 w-full border-b-2 flex justify-between items-center ">
                        <FaRegEye className="text-xl " />
                     </div>
                     <div className="eye p-2 flex justify-between items-center">
@@ -52,8 +60,12 @@ const Card = ({item}) => {
                     <p className="text-black">255 review</p>
                 </div>
                 <div className="price flex items-center gap-2">
-                    <del className="text-base">${price}</del>
-                    <p className="text-prymary font-semibold text-md">${discountPercentage}</p>
+                    {/* <del className="text-base">
+                      <PriceFormat priceData={price}/>
+                    </del>
+                    <p className="text-prymary font-semibold text-md">
+                        <PriceFormat priceData={discountPercentage}/>
+                    </p>   */}
                 </div>
             </div>
         </div>
