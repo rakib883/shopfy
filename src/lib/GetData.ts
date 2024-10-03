@@ -1,5 +1,5 @@
-export const GetData =async(data)=>{
-    const response = await fetch(data,{
+export const GetData =async(product)=>{
+    const response = await fetch(product,{
         method:"GET",
         headers:{
             "Content-Type":"application/json"

@@ -17,7 +17,7 @@ const Login = async () => {
     return (
         <>
             {session?.user ? (
-                <div className="content">
+                <div className="content mt-4">
                     <div className="content cursor-pointer flex items-center gap-2">
                         <div className="logo rounded-full h-[45px] w-[45px] flex justify-center items-center border-2">
                             <img className="rounded-full" src={session?.user?.image} alt="img" />
@@ -29,7 +29,7 @@ const Login = async () => {
                     </div>
                     <div className="uswe-area">
                         <form action={handleSignOut}>
-                            <button type="submit">Log Out</button>
+                            <button type="submit"></button>
                         </form>
                     </div>
                 </div>

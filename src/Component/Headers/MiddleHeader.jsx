@@ -1,10 +1,8 @@
 import React from 'react'
 import { CiSearch } from "react-icons/ci";
-import { TbArrowsSort } from "react-icons/tb";
-import { FaRegHeart } from "react-icons/fa6";
-import { IoBagOutline } from "react-icons/io5";
 import Link from 'next/link';
 import Login from "../User/Login"
+import Navitem from "../../components/ui/NavItem"
 
 const MiddleHeader = () => {
   return (
@@ -40,20 +38,12 @@ const MiddleHeader = () => {
                  </div>
             </div>
             <div>
-                <div className="main-area flex gap-10 items-center">
+                <div className="main-area flex gap-8 items-center">
                     <div className="profile">
                        <Login/>
                     </div>
-                    <div className="user-icon flex gap-6">
-                        <div className="arrow">
-                           <TbArrowsSort className="text-2xl" />
-                        </div>
-                        <div className="arrow">
-                           <FaRegHeart className="text-2xl" />
-                        </div>
-                        <div className="arrow">
-                           <IoBagOutline className="text-2xl" />
-                        </div>
+                    <div className="user-icon">
+                        <Navitem/>
                     </div>
                 </div>
             </div>

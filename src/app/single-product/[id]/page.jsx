@@ -1,44 +1,37 @@
-"use client"
 
-import { useEffect, useState } from "react"
-import { GetData } from "../../../lib/GetData"
-import Image from "next/image"
-import { FaStar } from "react-icons/fa";
-import PriceFormat from "../../../components/ui/PriceFormat";
-import { FaPlus } from "react-icons/fa6";
-import { GoDash } from "react-icons/go";
-import { MdOutlineCompareArrows } from "react-icons/md";
-import { IoIosHeartEmpty } from "react-icons/io";
-import { AiTwotoneQuestionCircle } from "react-icons/ai";
-import Border from "../../../components/ui/Border"
+ import { GetData } from "../../../lib/GetData"
+ import Image from "next/image"
+ import { FaStar } from "react-icons/fa";
+ import PriceFormat from "../../../components/ui/PriceFormat"; 
+ 
+ import { MdOutlineCompareArrows } from "react-icons/md";
+ import { IoIosHeartEmpty } from "react-icons/io";
+ import { AiTwotoneQuestionCircle } from "react-icons/ai";
+ import Border from "../../../components/ui/Border"
+ import Title from "../../../components/ui/Title";
+ import SinglePageTab from "../../../components/SinglePageTab"
+ import CatagorySlider from "../../../components/ui/CatagorySlider"
+ import SinglePageButton from "../../../components/ui/SinglePageButton"
 
-
-
-const page = ({searchParams  }) => {
-
+const page = async ({searchParams  }) => {
  const {id} = searchParams
- const [productData,setProductData] = useState([])
+ const response = (`http://localhost:3000/api/single-product/${id}`)
+ const productData = await GetData(response)
 
- console.log("hello",productData)
- useEffect(()=>{
-   const productHandeler =  async()=>{
-      try{
-         const resopnse = await GetData(`/api/single-product/${id}`)
-         setProductData(resopnse)
-      }catch(error){
-         console.log(error)
-      }
-   }
-   productHandeler()
- },[id])
-
+//  catagory slider data faching area start
+const catagory = (`http://localhost:3000/api/catagory/${productData?.category}`)
+const catagoryData = await GetData(catagory)
 
   return (
     <div >
       <div className="content mx-20 my-8 ">
         <div className="image-area flex ">
           <div className="image w-[60%] flex justify-center items-center ">
-            <Image className=" object-contain w-full h-[50%]" alt="img" width={200} height={200} src={productData?.thumbnail} />
+            {
+              productData?.thumbnail && 
+              <Image className="object-contain w-full h-[50%]" alt="img" width={500} height={500} src={productData?.thumbnail} />
+            }
+        
           </div>
           <div className="detils w-[40%]">
              <div className="main-area">
@@ -99,34 +92,11 @@ const page = ({searchParams  }) => {
                        <div className="yello bg-[#b4505a] border-2 border-green-600 h-4 w-4 rounded-full"></div>
                     </div>
                  </div>
-                 <div className="buttton flex flex-col gap-2">
-                   <div className="">
-                      <p className=" text-[15px] font-sans">Quantity :</p>
-                      <div className="button flex items-center gap-4 my-1">
-                          <div className="button w-[30%] bg-[#f3f5f6] ">
-                             <div className="item mx-1 py-2 px-2">
-                                <div className="item w-full  flex justify-between items-center">
-                                    <div className="increment cursor-pointer bg-white rounded-full h-6 w-6 flex justify-center items-center">
-                                      <FaPlus />
-                                    </div>
-                                    <div className="quentity cursor-pointer">0</div>
-                                    <div className="decrem cursor-pointer bg-white rounded-full h-6 w-6 flex justify-center items-center">
-                                      <GoDash />
-                                    </div>
-                                </div>
-                             </div>
-                          </div>
-                          <div className="buy border hover:bg-black hover:text-white duration-300 w-[70%] cursor-pointer">
-                            <div className="item flex justify-center items-center py-2 ">
-                               <p>Add to cart</p>
-                            </div>
-                          </div>
-                      </div>
-                   </div>
-                   <div className="buy bg-[#0989ff] hover:bg-black hover:text-white duration-300 text-center text-white font-sans font-semibold py-2 ">
-                     <button>Buy Now</button>
-                   </div>
+                 {/* button area start */}
+                 <div className="main">
+                   <SinglePageButton product={productData}/>
                  </div>
+                 {/* button area end */}
                  <div className="flex gap-4 my-2">
                     <div className="compare flex items-center gap-1 cursor-pointer hover:text-[#0989ff] duration-300">
                      <p><MdOutlineCompareArrows /></p>  <p>Compare</p>
@@ -146,9 +116,7 @@ const page = ({searchParams  }) => {
                      <p className=" font-sans text-[15px]">SKU : {productData?.sku}</p>
                      <p className=" font-sans text-[15px]">Catagory : {productData?.category}</p>
                      <p className=" font-sans text-[15px]">
-                       {
-                          productData?.tags
-                       }
+                      
                      </p>
                    </div>
                    <div className="catagory"></div>
@@ -157,6 +125,32 @@ const page = ({searchParams  }) => {
              </div>
           </div>
         </div>
+        {/* review area start */}
+            <div className="main">
+                <SinglePageTab productData={productData} />
+             </div>
+             {/* review area end */}
+            
+            {/* border area  */}
+            <div className="mainBorder my-8">
+              <Border/>
+            </div>
+         
+            {/* catagor slider area end */}
+            <div className="content  my-[50px]">
+              <div className="item text-center">
+                 <div className="title">
+                     <Title title="Next day Products" className="text-[18px] text-[#41b2ff]" />
+                 </div>
+                 <div className="maini-title">
+                    <Title title="Related Products"/>
+                 </div>
+              </div>
+            </div>
+            {/* catagpry slider area start */}
+            <div className="item">
+               <CatagorySlider  catagoryData={catagoryData}/>
+            </div>
       </div>
     </div>
   )

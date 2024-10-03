@@ -1,24 +1,33 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux'
-import {addTocart} from "../Redux/slice"
-import { useEffect } from 'react';
+import {addFavorite, addTocart} from "../Redux/slice"
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import Link from 'next/link';
 import PriceFormat from "../ui/PriceFormat"
+import { toast } from 'react-toastify';
  
 const Card = ({item}) => {
-    const {images, category,description, price,discountPercentage,id} = item 
+
+    const cartData = useSelector((state)=>state?.slice?.cartData)
+    const {images, category,description, price,discountPercentage,id,title,thumbnail} = item 
     const addCartDispatch = useDispatch()
-    const userData = useSelector((state)=>state)
+     
+    // existing check cart data area start
+    const [existingData,setExistingData] = useState()
     useEffect(()=>{
-        console.log(userData)
-    })
-    console.log("hello",id)
+      const cartExistingData =  cartData.find((cartId)=>cartId?.id === item?.id)
+      setExistingData(cartExistingData)
+    },[cartData,item?.id])
+    
+
+    // favorite area start 
+    const addFavoriteDispatch = useDispatch()
+
   return (
     <div>
         <div className="content border rounded-md group hover:shadow-2xl duration-300 cursor-pointer ">
@@ -30,15 +39,29 @@ const Card = ({item}) => {
                     <Image className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
                 </Link>
                  <div className="hover-icon absolute bottom-8 right-[-50px] group-hover:right-4 duration-300 flex flex-col bg-white shadow-lg border">
-                    <div onClick={()=>addCartDispatch(addTocart({
-                        name:category,
-                    }))} className="cart-icon p-2 w-full border-b-2 flex justify-between items-center">
+                    {
+                    <button title={existingData ? "Product added" : ""} disabled={ existingData && true} onClick={()=>{addCartDispatch(addTocart({
+                        name:title,
+                        price:price,
+                        id:id,
+                        image:thumbnail,
+                        quantety:1
+                    })),toast.success(`${title}....add succesfully`)  }} className={` cart-icon p-2 w-full border-b-2 flex justify-between items-center`}>
                         <IoCartOutline className="text-xl  w-full" />
-                    </div>
+                    </button>
+                    }
                     <div className="eye p-2 w-full border-b-2 flex justify-between items-center ">
                        <FaRegEye className="text-xl " />
                     </div>
-                    <div className="eye p-2 flex justify-between items-center">
+                    <div 
+                      onClick={()=>addFavoriteDispatch(addFavorite({
+                        name:title,
+                        price:price,
+                        id:id,
+                        image:thumbnail,
+                        quantety:1
+                      }))}
+                    className="eye p-2 flex justify-between items-center">
                        <FaRegHeart className="text-xl" />
                     </div>
                  </div>
@@ -60,12 +83,12 @@ const Card = ({item}) => {
                     <p className="text-black">255 review</p>
                 </div>
                 <div className="price flex items-center gap-2">
-                    {/* <del className="text-base">
-                      <PriceFormat priceData={price}/>
+                     <del className="text-base text-[12px]">
+                      <PriceFormat className="text-[12px]" priceData={price}/>
                     </del>
                     <p className="text-prymary font-semibold text-md">
-                        <PriceFormat priceData={discountPercentage}/>
-                    </p>   */}
+                        <PriceFormat className="text-[15px]" priceData={discountPercentage}/>
+                    </p>   
                 </div>
             </div>
         </div>

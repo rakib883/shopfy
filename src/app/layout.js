@@ -5,6 +5,8 @@ import MiddelHeader from "../Component/Headers/MiddleHeader"
 import BottomHeader from "../Component/Headers/BottomHeader"
 import Foter from "../Component/Foter/Foter"
 import ProviderLayout from "../components/Redux/ProviderLayout"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,6 +25,7 @@ export default function RootLayout({ children }) {
             <MiddelHeader/>
             <BottomHeader/>
               {children}
+              <ToastContainer autoClose={200} />
             <Foter/>
         </ProviderLayout> 
         </body>
