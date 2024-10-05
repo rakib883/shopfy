@@ -18,6 +18,10 @@ const dataSlice = createSlice({
           }else{
              state.cartData.push(action.payload)
           }
+
+          if(action.payload.id){
+               state.favoriteCart = state.favoriteCart.filter((item)=>item?.id !== action.payload.id) 
+          }
           
      },
      decrementQuantity:(state,action)=>{
@@ -34,10 +38,27 @@ const dataSlice = createSlice({
      },
      // product cart area end
      addFavorite:(state,action)=>{
-        state.favoriteCart.push(action.payload)
+          const existingFavorite = state.cartData.find((item)=>item.id === action.payload.id)
+          if(!existingFavorite){
+               state.favoriteCart.push(action.payload)
+          }
+         
+     },
+    
+     favoriteDecrement:(state,action)=>{
+          const checkExistingFavorite = state.favoriteCart.find((existingData)=>existingData.id === action.payload.id)
+          if(checkExistingFavorite.quantety === 1){
+               checkExistingFavorite.quantety === 1
+          }else{
+               checkExistingFavorite.quantety-- 
+          }          
+          
+     },
+     removeFavoriteData:(state,action)=>{
+          state.favoriteCart = state.favoriteCart.filter((item)=>item.id !== action.payload.id)
      }
   },
 });
 
-export const {addTocart,removeCartData,decrementQuantity,addFavorite  } = dataSlice.actions;
+export const {addTocart,removeCartData,decrementQuantity,addFavorite,favoriteDecrement,removeFavoriteData,favoriteExistingDataRemove } = dataSlice.actions;
 export default dataSlice.reducer;

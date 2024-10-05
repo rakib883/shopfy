@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux'
-import {addFavorite, addTocart} from "../Redux/slice"
+import {addFavorite, addTocart} from "../redux/slice"
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import Link from 'next/link';
@@ -19,15 +19,22 @@ const Card = ({item}) => {
      
     // existing check cart data area start
     const [existingData,setExistingData] = useState()
-    useEffect(()=>{
-      const cartExistingData =  cartData.find((cartId)=>cartId?.id === item?.id)
-      setExistingData(cartExistingData)
-    },[cartData,item?.id])
+    // useEffect(()=>{
+    //   const cartExistingData =  cartData.find((cartId)=>cartId?.id === item?.id)
+    //   setExistingData(cartExistingData)
+    // },[cartData,item?.id])
     
 
     // favorite area start 
     const addFavoriteDispatch = useDispatch()
 
+    // existing favorite check
+    const favoriteData = useSelector((item)=>item?.slice?.favoriteCart)
+    const [isFavorite,setFavorite] = useState(null)
+    // useEffect(()=>{
+    //     const existingFavorite = favoriteData.find((itemId)=>itemId?.id === id)
+    //     setFavorite(existingFavorite)
+    // },[favoriteData])
   return (
     <div>
         <div className="content border rounded-md group hover:shadow-2xl duration-300 cursor-pointer ">
@@ -53,17 +60,30 @@ const Card = ({item}) => {
                     <div className="eye p-2 w-full border-b-2 flex justify-between items-center ">
                        <FaRegEye className="text-xl " />
                     </div>
-                    <div 
-                      onClick={()=>addFavoriteDispatch(addFavorite({
-                        name:title,
-                        price:price,
-                        id:id,
-                        image:thumbnail,
-                        quantety:1
-                      }))}
-                    className="eye p-2 flex justify-between items-center">
-                       <FaRegHeart className="text-xl" />
-                    </div>
+                    <div className="main">
+                        {
+                         isFavorite ? 
+                         <div 
+                           onClick={()=>toast.error(`${title.substring(0,15)}...existing`)}
+                         className="item">
+                            <div className=" p-2 flex justify-between items-center">
+                               <FaRegHeart className="text-xl text-[red]" />
+                            </div>
+                         </div>
+                         :  
+                        <div 
+                        onClick={()=>{addFavoriteDispatch(addFavorite({
+                            name:title,
+                            price:price,
+                            id:id,
+                            image:thumbnail,
+                            quantety:1
+                        })),toast.success(`${title} ...favorit listed`)}}
+                        className=" p-2 flex justify-between items-center">
+                        <FaRegHeart className="text-xl" />
+                        </div>
+                        }
+                    </div>    
                  </div>
             </div>
             <div className="border"></div>

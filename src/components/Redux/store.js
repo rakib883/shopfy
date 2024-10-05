@@ -1,12 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import dataSlice from "../Redux/slice"
+import dataSlice from "./slice"
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
  
-const rootReducer = combineReducers({
-    slice:dataSlice,
-  // Add more slices here
-});
+ 
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+ 
+const persistedReducer = persistReducer(persistConfig, dataSlice)
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
 });
+
+export let persistor = persistStore(store)

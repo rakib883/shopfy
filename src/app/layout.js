@@ -4,7 +4,7 @@ import TopHeader from "../Component/Headers/TopHeaser"
 import MiddelHeader from "../Component/Headers/MiddleHeader"
 import BottomHeader from "../Component/Headers/BottomHeader"
 import Foter from "../Component/Foter/Foter"
-import ProviderLayout from "../components/Redux/ProviderLayout"
+import ProviderLayout from "../components/redux/ProviderLayout"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             <MiddelHeader/>
             <BottomHeader/>
               {children}
-              <ToastContainer autoClose={200} />
+              <ToastContainer autoClose={1000} />
             <Foter/>
         </ProviderLayout> 
         </body>

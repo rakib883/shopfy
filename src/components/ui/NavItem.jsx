@@ -8,56 +8,53 @@ import Border from "../ui/Border"
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineXMark } from "react-icons/hi2";
 import PriceFormat from './PriceFormat';
-import {  removeCartData } from '../Redux/slice';
+import {  removeCartData } from '../redux/slice';
+import Link from 'next/link';
 const NavItem = () => {
+   const dispatch = useDispatch()
+
     const [navBarItem,setNavbarItem] = useState(false)
     // redux data area start
-
-
-
-   //  cart item aremove area dispatch
-   const cartDatRemove = useDispatch()
-
-
-    const userData = useSelector((state)=>state?.slice?.cartData) 
+    const userData = useSelector((state)=>state?.cartData) 
     const [totalPrice,setTotalPrice] = useState("")
-    useEffect((item)=>{
-         let total = 0
-         userData.map((item)=>{
-            total += (item?.price)*(item?.quantety)
-         })
-         setTotalPrice(total)
-    }),[userData]
+     useEffect(()=>{
+          let total = 0
+          userData.map((item)=>{
+             total += (item?.price)*(item?.quantety)
+          })
+          setTotalPrice(total)
+     },[userData])
 
-//   favorite redux data area start
-const favoriteData = useSelector((item)=>item?.slice?.favoriteCart)
-console.log("favorite data",favoriteData)
+    //   favorite redux data area start
+   const favoriteData = useSelector((item)=>item?.favoriteCart)
+
+console.log("cart data",favoriteData)
 
   return (
     <div>
-        <div className="user-icon flex gap-6 cursor-pointer">
+         <div className="user-icon flex gap-6 cursor-pointer">
             <div className="arrow">
                 <TbArrowsSort className="text-2xl" />
              </div>
              <div className="arrow">
-               <div className="item relative">
+               <Link href="/wishlist" className="item relative">
                  <FaRegHeart className="text-2xl" />
                   <div className="main flex justify-center absolute top-[-7px] right-[-5px] items-center bg-[#0989ff] h-4 w-4 rounded-full">
                     <p className="text-white font-medium text-[10px]" >{favoriteData.length}</p>
                   </div>
-                </div>
+                </Link>
              </div>
              <div onClick={()=>setNavbarItem(true)} className="arrow cursor-pointer">
                <div className="item relative">
                  <IoBagOutline className="text-2xl" />
                   <div className="main flex justify-center absolute top-[-7px] right-[-5px] items-center bg-[#0989ff] h-4 w-4 rounded-full">
-                    <p className="text-white font-medium text-[10px]" >{userData.length}</p>
+                    <p className="text-white font-medium text-[10px]" >{userData?.length}</p>
                   </div>
                </div>
             </div>
-        </div>
+        </div> 
         {/* iner nav area start */}
-        <div className="main-content">
+         <div className="main-content">
             {
             navBarItem === true &&
             <div className="item bg-black/60 absolute top-0 w-full h-screen right-0">
@@ -89,7 +86,7 @@ console.log("favorite data",favoriteData)
                                          <div className="title flex gap-4 ">
                                             <Title className="text-[12px] text-[#0989ff] hover:text-indigo-700 duration-300" title={item?.name.substring(0,20)}/>
                                             <p 
-                                              onClick={()=>cartDatRemove(removeCartData({
+                                              onClick={()=>dispatch(removeCartData({
                                                 id:item?.id
                                               }))}
                                             ><HiOutlineXMark className="text-xl" /></p>
@@ -116,9 +113,9 @@ console.log("favorite data",favoriteData)
                                  </div>
                               </div>
                               <div className="button-area flex flex-col gap-4">
-                                 <div className="view-cart">
+                                 <Link href="/cart" onClick={()=>setNavbarItem(false)} className="view-cart">
                                      <button className="w-full hover:bg-[#0989ff] duration-300 hover:text-white bg-black text-white py-3 text-[16px] font-medium">View cart</button>
-                                 </div>
+                                 </Link>
                                  <div className="view-cart">
                                      <button className="w-full border-[2px] border-black hover:border-transparent hover:bg-[#0989ff] duration-300 hover:text-white  text-black py-3 text-[16px] font-medium">Checkout</button>
                                  </div>
