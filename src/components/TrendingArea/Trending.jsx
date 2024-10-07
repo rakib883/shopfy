@@ -1,7 +1,7 @@
 
 import { GetData } from "../../lib/GetData";
-import Title from "../../components/ui/Title"
-import Card from "../../components/ui/Card"
+import Title from "../ui/Title"
+import Card from "../ui/Card"
 
 
 const Trending =async () => {

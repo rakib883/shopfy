@@ -1,8 +1,23 @@
+"use client"
 import Image from 'next/image';
+import { GetData } from '../../lib/GetData';
+const Catagory = async() => {
+    // beuty area start
+   const Beuty =  "http://localhost:3000/api/catagory/beauty"
+   const beutyData = await GetData(Beuty)
 
+   //Fragrances area start 
+   const Fragrances = "http://localhost:3000/api/catagory/fragrances"
+   const FragrancesData = await GetData(Fragrances)
 
+  //furniture area start
+  const furniture = "http://localhost:3000/api/catagory/furniture"
+  const furnitureData = await GetData(furniture)
 
-const Catagory = () => {
+  // groceries  area start
+  const groceries = "http://localhost:3000/api/catagory/groceries"
+  const groceriesData = await GetData(groceries)
+
   return (
     <div>
         <div className="content mx-20 mt-10">
@@ -13,7 +28,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">Beuty</p>
-                         <p className=" font-semibold"> products</p>
+                         <p className=" font-semibold">{beutyData?.length} products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -22,7 +37,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">Fragrances</p>
-                         <p className=" font-semibold"> products</p>
+                         <p className=" font-semibold">{FragrancesData?.length} products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -31,7 +46,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">furniture</p>
-                         <p className=" font-semibold"> products</p>
+                         <p className=" font-semibold">{furnitureData?.length} products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
@@ -40,7 +55,7 @@ const Catagory = () => {
                     </div>
                     <div className="text text-center">
                         <p className="text-[20px] font-bold hover:text-prymary duration-300">groceries</p>
-                         <p className=" font-semibold">products</p>
+                         <p className=" font-semibold">{groceriesData?.length} products</p>
                     </div>
                 </div>
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">

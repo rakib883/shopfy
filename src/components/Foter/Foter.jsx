@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Title from '../../components/ui/Title'
+import Title from '../ui/Title'
 import { MdOutlineEmail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";

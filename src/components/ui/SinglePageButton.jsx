@@ -12,7 +12,7 @@ const SinglePageButton = ({product}) => {
    
 
     // const redux data area start
-    const cartData = useSelector((state)=>state?.slice?.cartData) 
+    const cartData = useSelector((state)=>state?.cartData) 
     const addCartDispatch = useDispatch()
      const remoceDisparch = useDispatch()
     const [singleData,setSingleData] = useState("")
@@ -23,7 +23,7 @@ const SinglePageButton = ({product}) => {
           setSingleData(cartDataItem)
     },[cartData])
 
-   console.log("single data",singleData?.id)
+ 
   return (
     <div className="buttton flex flex-col gap-2">
      <div className="">

@@ -1,11 +1,8 @@
-
 import React from 'react'
 import Title from '../../components/ui/Title'
 import WhistListTable from "../../components/ui/WhistListTable"
 
 const page = () => {
-    // redux data local storage
-   
   return (
     <div>
         <div className="main mx-20 my-8">

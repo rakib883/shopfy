@@ -9,7 +9,7 @@ import { addFavorite, addTocart, favoriteDecrement,removeFavoriteData } from '..
 const WhistListTable = () => {
     const favoriteData = useSelector((state)=>state?.favoriteCart)
     const cartData = useSelector((state)=>state?.cartData)
-    console.log("favorite data",favoriteData)
+
 
     // increment area start
     const dispatch = useDispatch()
@@ -71,7 +71,7 @@ const WhistListTable = () => {
                 <td className=" text-center ">
                     <div className="item  flex justify-center">
                         <button
-                        onClick={()=>removeDispatch(removeFavoriteData({
+                        onClick={()=>dispatch(removeFavoriteData({
                             id:item?.id
                         }))}
                         className="cross max-w-[100px]   flex justify-center items-center hover:text-red-600 cursor-pointer  gap-1">

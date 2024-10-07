@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import TopHeader from "../Component/Headers/TopHeaser"
-import MiddelHeader from "../Component/Headers/MiddleHeader"
-import BottomHeader from "../Component/Headers/BottomHeader"
-import Foter from "../Component/Foter/Foter"
-import ProviderLayout from "../components/redux/ProviderLayout"
+import TopHeader from "../components/headers/TopHeaser"
+import MiddelHeader from "../components/headers/MiddleHeader"
+import BottomHeader from "../components/headers/BottomHeader"
+import Foter from "../components/foter/Foter"
 import { ToastContainer, toast } from 'react-toastify';
+import ProviderLayout from "../components/ui/ProviderLayout"
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -20,14 +20,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-         <ProviderLayout>
+          <ProviderLayout>
             <TopHeader/>
             <MiddelHeader/>
             <BottomHeader/>
               {children}
               <ToastContainer autoClose={1000} />
             <Foter/>
-        </ProviderLayout> 
+          </ProviderLayout>
         </body>
     </html>
   );

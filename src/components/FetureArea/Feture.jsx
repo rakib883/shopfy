@@ -1,4 +1,4 @@
-import Title from "../../components/ui/Title"
+import Title from "../ui/Title"
 import { GetData } from "../../lib/GetData"
 
 const Feture = async() => {

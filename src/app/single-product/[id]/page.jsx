@@ -9,7 +9,7 @@
  import { AiTwotoneQuestionCircle } from "react-icons/ai";
  import Border from "../../../components/ui/Border"
  import Title from "../../../components/ui/Title";
- import SinglePageTab from "../../../components/SinglePageTab"
+ import SinglePageTab from "../../../components/singlePageTab/SinglePageTab"
  import CatagorySlider from "../../../components/ui/CatagorySlider"
  import SinglePageButton from "../../../components/ui/SinglePageButton"
 

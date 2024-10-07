@@ -1,34 +1,53 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { TbArrowsSort } from "react-icons/tb";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoBagOutline } from "react-icons/io5";
-import Title from './Title';
+import Title from "../ui/Title";
 import Border from "../ui/Border"
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineXMark } from "react-icons/hi2";
-import PriceFormat from './PriceFormat';
+import PriceFormat from "../ui/PriceFormat";
 import {  removeCartData } from '../redux/slice';
 import Link from 'next/link';
 const NavItem = () => {
+   const navHandelerRef = useRef(null)
    const dispatch = useDispatch()
-
+    
+   // nav handeler area start
     const [navBarItem,setNavbarItem] = useState(false)
+
+
     // redux data area start
-    const userData = useSelector((state)=>state?.cartData) 
+    const stateData = useSelector((state)=>state) 
+    const {cartData,favoriteCart} = stateData
+
+
     const [totalPrice,setTotalPrice] = useState("")
      useEffect(()=>{
           let total = 0
-          userData.map((item)=>{
+          cartData.map((item)=>{
              total += (item?.price)*(item?.quantety)
           })
           setTotalPrice(total)
-     },[userData])
+     },[cartData])
 
-    //   favorite redux data area start
-   const favoriteData = useSelector((item)=>item?.favoriteCart)
+    
 
-console.log("cart data",favoriteData)
+   //   nav handeler area start
+   useEffect(()=>{
+      const outSideHandeler = (e)=>{
+         if(navHandelerRef.current && !navHandelerRef.current.contains(e.target)){
+            setNavbarItem(false)
+         }
+      }
+
+      document.addEventListener("mousedown",outSideHandeler)
+
+      return ()=>{
+         document.removeEventListener("mousedown",outSideHandeler)
+      }
+   },[])
 
   return (
     <div>
@@ -40,7 +59,7 @@ console.log("cart data",favoriteData)
                <Link href="/wishlist" className="item relative">
                  <FaRegHeart className="text-2xl" />
                   <div className="main flex justify-center absolute top-[-7px] right-[-5px] items-center bg-[#0989ff] h-4 w-4 rounded-full">
-                    <p className="text-white font-medium text-[10px]" >{favoriteData.length}</p>
+                    <p className="text-white font-medium text-[10px]" >{favoriteCart.length}</p>
                   </div>
                 </Link>
              </div>
@@ -48,7 +67,7 @@ console.log("cart data",favoriteData)
                <div className="item relative">
                  <IoBagOutline className="text-2xl" />
                   <div className="main flex justify-center absolute top-[-7px] right-[-5px] items-center bg-[#0989ff] h-4 w-4 rounded-full">
-                    <p className="text-white font-medium text-[10px]" >{userData?.length}</p>
+                    <p className="text-white font-medium text-[10px]" >{cartData?.length}</p>
                   </div>
                </div>
             </div>
@@ -56,9 +75,9 @@ console.log("cart data",favoriteData)
         {/* iner nav area start */}
          <div className="main-content">
             {
-            navBarItem === true &&
+            navBarItem &&
             <div className="item bg-black/60 absolute top-0 w-full h-screen right-0">
-                <div className={`${navBarItem === true ? "right-0 duration-300" : "right-[-300px] duration-300"}  duration-300 main-item bg-white w-[320px]  -top-1 fixed h-screen`}>
+                <div ref={navHandelerRef} className={`${navBarItem === true ? "right-0 duration-300" : "right-[-300px] duration-300"}  duration-300 main-item bg-white w-[320px]  -top-1 fixed h-screen`}>
                     <div className="">
                        <div className="title px-6 pt-6 flex justify-between items-center">
                           <div className="title">
@@ -72,12 +91,12 @@ console.log("cart data",favoriteData)
                           <Border/>
                        </div>
                      {
-                      userData.length > 0 ?  
+                      cartData.length > 0 ?  
                      <div className="parent">
                        <div className="data-area  overflow-y-auto">
                          <div className="item flex max-h-[300px] overflow-y-auto-hidden px-6 flex-col gap-4">
                             {
-                                userData?.map((item)=>
+                                cartData?.map((item)=>
                                   <div key={item?.id} className="main cursor-pointer flex gap-4">
                                      <div className="image h-[50px] w-[50px] bg-white border">
                                         <img className="" src={item?.image} alt="" />

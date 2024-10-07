@@ -1,12 +1,12 @@
-import Slider from "../Component/Slider/Slider"
-import Trending from './../Component/TrendingArea/Trending';
-import Catagory from "../Component/Catagory/Catagory"
-import Faceleties from "../Component/Faceleties/Faceleties"
-import Banner from "../Component/AdsBanner/Banner"
-import Eletronic from "../Component/Eletronic/Eletronic"
-import BottomSlider from "../Component/BottomSlider/BottomSlider"
-import NewAraval from "../Component/NewArrival/NewAraval"
-import Feture from './../Component/FetureArea/Feture';
+import Slider from "../components/slider/Slider"
+import Trending from "../components/trendingArea/Trending";
+import Catagory from "../components/catagory/Catagory"
+import Faceleties from "../components/faceleties/Faceleties"
+import Banner from "../components/adsBanner/Banner"
+import Eletronic from "../components/eletronic/Eletronic"
+import BottomSlider from "../components/bottomSlider/BottomSlider"
+import NewAraval from "../components/newArrival/NewAraval"
+import Feture from "../components/fetureArea/Feture";
 function page() {
   return (
     <div>

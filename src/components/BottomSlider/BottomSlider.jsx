@@ -1,5 +1,5 @@
 import React from 'react'
-import Virtacal from './../../lib/Virtacal';
+import Virtacal from '../../lib/Virtacal';
 
 const BottomSlider = () => {
     const sliderBanner = [

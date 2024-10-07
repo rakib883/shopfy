@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link';
-import Login from "../User/Login"
-import Navitem from "../../components/ui/NavItem"
-import HeaderInput from "../../Component/HeaderInput/HeaderInput"
+import Login from "../user/Login"
+import HeaderInput from "../headerInput/HeaderInput"
+import NavItem from "../navItem/NavItem"
 const MiddleHeader = () => {
   return (
     <div className=" border-b-[1px] sticky top-0 bg-white z-50">
@@ -23,7 +23,7 @@ const MiddleHeader = () => {
                        <Login/>
                     </div>
                     <div className="user-icon">
-                        <Navitem/>
+                       <NavItem/>
                     </div>
                 </div>
             </div>

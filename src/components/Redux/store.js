@@ -14,6 +14,7 @@ const persistedReducer = persistReducer(persistConfig, dataSlice)
 
 export const store = configureStore({
   reducer: persistedReducer,
+  
 });
 
 export let persistor = persistStore(store)

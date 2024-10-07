@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Border from "../components/ui/Border"
+import Border from "../ui/Border"
 import { FaStar } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
-import Title from "../components/ui/Title"
-import InputArea from "../components/ui/InputArea"
+import Title from "../ui/Title"
+import InputArea from "../ui/InputArea"
 const SinglePageTab = ({productData}) => {
     const [descPrtion,setDescprtion] = useState(1)
 

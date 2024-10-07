@@ -11,8 +11,6 @@ import Border from "../../components/ui/Border";
 
 const page =()=>{
     const userData = useSelector((state)=>state?.cartData)
-    console.log(userData)
-
     // total price area start
     const [totalPrice,setTotalPrice] = useState()
     useEffect(()=>{
@@ -22,7 +20,7 @@ const page =()=>{
         })
         setTotalPrice(total)
     },[userData])
-    console.log("hello",totalPrice)
+   
     // increment area start
     const dispatch = useDispatch()
 
