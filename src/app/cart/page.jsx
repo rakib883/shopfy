@@ -5,9 +5,9 @@ import PriceFormat from "../../components/ui/PriceFormat"
 import { HiOutlineXMark } from "react-icons/hi2";
 import { FaPlus } from "react-icons/fa6";
 import { GoDash } from "react-icons/go";
-import { addTocart, decrementQuantity, removeCartData } from "../../components/redux/slice";
 import { useEffect, useState } from "react";
 import Border from "../../components/ui/Border";
+import { addTocart, decrementQuantity, removeCartData } from "../../components/redux/slice";
 
 const page =()=>{
     const userData = useSelector((state)=>state?.cartData)
