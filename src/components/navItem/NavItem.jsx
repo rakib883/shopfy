@@ -8,7 +8,7 @@ import Border from "../ui/Border"
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineXMark } from "react-icons/hi2";
 import PriceFormat from "../ui/PriceFormat";
-import {  removeCartData } from '../redux/slice';
+import {  removeCartData } from '../../components/Redux/slice';
 import Link from 'next/link';
 const NavItem = () => {
    const navHandelerRef = useRef(null)
