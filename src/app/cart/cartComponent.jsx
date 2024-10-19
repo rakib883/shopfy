@@ -8,7 +8,7 @@ import { GoDash } from "react-icons/go";
 import { useEffect, useState } from "react";
 import Border from "../../components/ui/Border";
 import { loadStripe } from "@stripe/stripe-js";
-import { addTocart, decrementQuantity, removeCartData,  } from "../../components/redux/slice";
+import { addTocart, decrementQuantity, removeCartData,  } from "../../redux/slice";
 
 
 const Page =({loginuser})=>{
