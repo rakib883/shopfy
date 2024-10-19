@@ -1,4 +1,4 @@
-import Slider from "../components/Slider/slider"
+import Slider from "../components/slider/slider"
 import Trending from "../components/trendingArea/Trending";
 import Catagory from "../components/catagory/Catagory"
 import Faceleties from "../components/faceleties/Faceleties"
