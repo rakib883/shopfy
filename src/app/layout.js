@@ -1,9 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import TopHeader from "../components/headers/TopHeader"
-import MiddelHeader from "../components/headers/MiddleHeader"
-import BottomHeader from "../components/headers/BottomHeader"
-import Foter from "../components/foter/Foter"
+
 import { ToastContainer, toast } from 'react-toastify';
 import ProviderLayout from "../components/ui/ProviderLayout"
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,12 +18,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
           <ProviderLayout>
-            <TopHeader/>
-            <MiddelHeader/>
-            <BottomHeader/>
+            
               {children}
               <ToastContainer autoClose={1000} />
-            <Foter/>
+       
           </ProviderLayout>
         </body>
     </html>
