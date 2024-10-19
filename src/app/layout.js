@@ -3,7 +3,7 @@ import "./globals.css";
 import TopHeader from "../headers/TopHeader"
 import MiddleHeader from "../headers/MiddleHeader"
 import BottomHeader from "../headers/BottomHeader"
-import Foter from "../components/Foter/Foter"
+import Foter from "../components/foter/Foter"
 import { ToastContainer, toast } from 'react-toastify';
 import ProviderLayout from "../components/ui/ProviderLayout"
 import 'react-toastify/dist/ReactToastify.css';
