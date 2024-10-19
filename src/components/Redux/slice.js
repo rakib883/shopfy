@@ -14,7 +14,7 @@ const dataSlice = createSlice({
      addTocart:(state,action)=>{
           const existingProduct = state.cartData.find((item)=>item?.id === action.payload.id)
           if(existingProduct){
-               existingProduct.quantety++
+               existingProduct.quantity++
           }else{
              state.cartData.push(action.payload)
           }
@@ -26,15 +26,19 @@ const dataSlice = createSlice({
      },
      decrementQuantity:(state,action)=>{
           const existingProduct = state.cartData.find((item)=>item?.id === action.payload.id)
-          if(existingProduct.quantety === 1){
-               existingProduct.quantety === 1
+          if(existingProduct.quantity === 1){
+               existingProduct.quantity === 1
           }else{
-               existingProduct.quantety--
+               existingProduct.quantity--
           }
           
      },
      removeCartData:(state,action)=>{
           state.cartData = state.cartData.filter((item)=>item?.id !== action.payload.id)
+     },
+
+     resetCart:(state,action)=>{
+           state.cartData =[]
      },
      // product cart area end
      addFavorite:(state,action)=>{
@@ -44,13 +48,20 @@ const dataSlice = createSlice({
           }
          
      },
+
+     favoriteIncrement:(state,action)=>{
+        const existingFavorite = state.favoriteCart.find((item)=>item.id === action.payload.id)
+        if(existingFavorite){
+          existingFavorite.quantity++
+        }
+     },
     
      favoriteDecrement:(state,action)=>{
           const checkExistingFavorite = state.favoriteCart.find((existingData)=>existingData.id === action.payload.id)
-          if(checkExistingFavorite.quantety === 1){
-               checkExistingFavorite.quantety === 1
+          if(checkExistingFavorite.quantity === 1){
+               checkExistingFavorite.quantity === 1
           }else{
-               checkExistingFavorite.quantety-- 
+               checkExistingFavorite.quantity-- 
           }          
           
      },
@@ -60,5 +71,5 @@ const dataSlice = createSlice({
   },
 });
 
-export const {addTocart,removeCartData,decrementQuantity,addFavorite,favoriteDecrement,removeFavoriteData,favoriteExistingDataRemove } = dataSlice.actions;
+export const {addTocart,removeCartData,decrementQuantity,addFavorite,favoriteDecrement,removeFavoriteData,favoriteExistingDataRemove,favoriteIncrement,resetCart } = dataSlice.actions;
 export default dataSlice.reducer;

@@ -60,7 +60,7 @@ const Card = ({item}) => {
                                 price:price,
                                 id:id,
                                 image:thumbnail,
-                                quantety:1
+                                quantity:1
                                 })),toast.success(`${title}....add succesfully`)  }} className={` cart-icon p-2 w-full border-b-2 flex justify-between items-center`}>
                                 <IoCartOutline className="text-xl  w-full" />
                             </button>
@@ -85,7 +85,7 @@ const Card = ({item}) => {
                             price:price,
                             id:id,
                             image:thumbnail,
-                            quantety:1
+                            quantity:1
                         })),toast.success(`${title} ...favorit listed`)}}
                         className=" p-2 flex justify-between items-center">
                         <FaRegHeart className="text-xl" />

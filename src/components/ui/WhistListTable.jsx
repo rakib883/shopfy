@@ -4,7 +4,7 @@ import PriceFormat from './PriceFormat'
 import { LuPlus } from "react-icons/lu";
 import { VscDash } from "react-icons/vsc";
 import { HiOutlineXMark } from "react-icons/hi2";
-import { addFavorite, addTocart, favoriteDecrement,removeFavoriteData } from '../redux/slice';
+import { addFavorite, addTocart, favoriteDecrement,favoriteIncrement,removeFavoriteData } from '../redux/slice';
 
 const WhistListTable = () => {
     const favoriteData = useSelector((state)=>state?.favoriteCart)
@@ -38,15 +38,15 @@ const WhistListTable = () => {
                     <div className="quantity flex justify-center items-center  ">
                         <div className=" flex justify-around items-center w-full border rounded-xl  max-w-[100px]">
                             <div 
-                              onClick={()=>dispatch(addFavorite({id:item?.id}))}
+                              onClick={()=>dispatch(favoriteIncrement({id:item?.id}))}
                             className="inc py-3 cursor-pointer">
                                <LuPlus />
                             </div>
                             <div className="quant cursor-pointer">
-                                <p>{item?.quantety}</p>
+                                <p>{item?.quantity}</p>
                             </div>
                             <div 
-                            onClick={()=>dispatch({id:item?.id})}
+                            onClick={()=>dispatch(favoriteDecrement({id:item?.id}))}
                             className="decrem cursor-pointer">
                               <VscDash />
                             </div>
@@ -60,7 +60,7 @@ const WhistListTable = () => {
                         price:item?.price,
                         id:item?.id,
                         image:item?.image,
-                        quantety:item?.quantety
+                        quantity:item?.quantity
                      }))}
                     className="main  flex justify-center">
                         <div className="button-area max-w-[200px] py-2 px-2   bg-[#0989ff] rounded-sm">

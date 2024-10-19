@@ -30,8 +30,6 @@ const Eletronic = () => {
         }
     };
 
-    console.log("catagory data", allCatagoryProduct);
-
     const catagery = [
         { id: 1, name: "beauty" },
         { id: 2, name: "fragrances" },

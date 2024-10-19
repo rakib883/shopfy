@@ -38,20 +38,20 @@ const SinglePageButton = ({product}) => {
                           price:price,
                           id:id,
                           image:thumbnail,
-                          quantety:1
+                          quantity:1
                       }))}}
                      
                      className="increment cursor-pointer bg-white rounded-full h-6 w-6 flex justify-center items-center">
                        <FaPlus />
                      </div>
-                     <div className="quentity cursor-pointer">{singleData?.quantety}</div>
+                     <div className="quentity cursor-pointer">{singleData?.quantity}</div>
                      <button
                       onClick={()=>remoceDisparch(decrementQuantity({
                         name:title,
                         price:price,
                         id:id,
                         image:thumbnail,
-                        quantety:1
+                        quantity:1
                       }))}
                      className="decrem cursor-pointer bg-white rounded-full h-6 w-6 flex justify-center items-center">
                        <GoDash />
@@ -72,7 +72,7 @@ const SinglePageButton = ({product}) => {
                       price:price,
                       id:id,
                       image:thumbnail,
-                      quantety:1
+                      quantity:1
                   })),toast.success(`${title} ....add successfully`)}}
                 className="buy border hover:bg-black hover:text-white duration-300 w-full  cursor-pointer">
                   <div className="item flex justify-center items-center py-2  ">
@@ -83,9 +83,9 @@ const SinglePageButton = ({product}) => {
             </div>
        </div>
     </div>
-    <button  className="buy bg-[#0989ff] hover:bg-black hover:text-white duration-300 text-center text-white font-sans font-semibold py-2 ">
+    <Link href="/cart"  className="buy bg-[#0989ff] hover:bg-black hover:text-white duration-300 text-center text-white font-sans font-semibold py-2 ">
       <p>Buy Now</p>
-    </button>
+    </Link>
   </div> 
   )
 }

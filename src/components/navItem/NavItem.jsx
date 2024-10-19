@@ -27,7 +27,7 @@ const NavItem = () => {
      useEffect(()=>{
           let total = 0
           cartData.map((item)=>{
-             total += (item?.price)*(item?.quantety)
+             total += (item?.price)*(item?.quantity)
           })
           setTotalPrice(total)
      },[cartData])
@@ -113,7 +113,7 @@ const NavItem = () => {
                                          <div className="remove flex items-center">
                                              <p className=" text-[12px] font-semibold">${item?.price}</p>
                                              <p><HiOutlineXMark className="text-[10px] mt-1 text-[#0989ff]" /></p>
-                                             <p  className="text-[10px] mt-1 text-[#0989ff]">{item?.quantety}</p>
+                                             <p  className="text-[10px] mt-1 text-[#0989ff]">{item?.quantity}</p>
                                          </div>
                                      </div>
                                   </div>

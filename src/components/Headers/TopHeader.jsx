@@ -1,7 +1,7 @@
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
-const TopHeaser = () => {
+const TopHeader = () => {
   return (
     <div className="bg-[#010f1c] text-white h-[30px]">
         <div className="content mx-20 flex h-full justify-between">
@@ -35,4 +35,4 @@ const TopHeaser = () => {
   )
 }
 
-export default TopHeaser
+export default TopHeader
