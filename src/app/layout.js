@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TopHeader from "../components/headers/TopHeader"
 import MiddelHeader from "../components/headers/MiddleHeader"
-import BottomHeader from "../components/bottomSlider/BottomSlider"
+import BottomHeader from "../components/headers/BottomHeader"
 import Foter from "../components/foter/Foterr"
 import { ToastContainer, toast } from 'react-toastify';
 import ProviderLayout from "../components/ui/ProviderLayout"
