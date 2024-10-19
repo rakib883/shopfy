@@ -3,7 +3,7 @@
 import { redirect, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { resetCart } from "../../redux/slice";
+import { resetCart } from "../../components/Redux/slice";
 import Title from "../../components/ui/Title";
 import Link from "next/link";
 
