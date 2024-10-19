@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaStar } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from 'react-redux'
-import {addFavorite, addTocart} from "../../redux/slice"
+import {addFavorite, addTocart} from "../../components/Redux/slice"
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import Link from 'next/link';

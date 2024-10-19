@@ -8,7 +8,7 @@ import { GoDash } from "react-icons/go";
 import { useEffect, useState } from "react";
 import Border from "../../components/ui/Border";
 import { loadStripe } from "@stripe/stripe-js";
-import { addTocart, decrementQuantity, removeCartData,  } from "../../redux/slice";
+import { addTocart, decrementQuantity, removeCartData,  } from "../../components/Redux/slice";
 
 
 const Page =({loginuser})=>{
@@ -52,7 +52,6 @@ const Page =({loginuser})=>{
 
     return(
         <div className="main">
-            hello
             <div className="main mx-20 my-4">
                 {
             userData.length > 0 ?

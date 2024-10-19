@@ -4,7 +4,7 @@ import PriceFormat from './PriceFormat'
 import { LuPlus } from "react-icons/lu";
 import { VscDash } from "react-icons/vsc";
 import { HiOutlineXMark } from "react-icons/hi2";
-import { addFavorite, addTocart, favoriteDecrement,favoriteIncrement,removeFavoriteData } from '../../redux/slice';
+import { addFavorite, addTocart, favoriteDecrement,favoriteIncrement,removeFavoriteData } from '../../components/Redux/slice';
 
 const WhistListTable = () => {
     const favoriteData = useSelector((state)=>state?.favoriteCart)

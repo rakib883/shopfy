@@ -2,7 +2,7 @@
 import React from 'react'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import {store, persistor } from "../../redux/slice"
+import {store, persistor } from "../../components/Redux/store"
 import Loading from "../../app/loading"
 const ProviderLayout = ({children}) => {
   return (
