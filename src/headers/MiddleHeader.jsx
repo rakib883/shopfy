@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import Login from "../components/User/Login"
-import HeaderInput from "../components/headerInput/HeaderInput"
+import HeaderInput from "../components/HeaderInput"
 import NavItem from "../components/navItem/NavItem"
 const MiddleHeader = () => {
   return (
