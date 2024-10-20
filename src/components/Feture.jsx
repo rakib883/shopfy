@@ -1,5 +1,5 @@
-import Title from "../ui/Title"
-import { GetData } from "../../lib/GetData"
+import Title from "../components/ui/Title"
+import { GetData } from "../lib/GetData"
 
 const Feture = async() => {
     const response = "http://localhost:3000/api/product"
