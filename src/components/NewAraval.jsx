@@ -4,7 +4,7 @@ import { GetData } from '../lib/GetData';
 import Title from '../components/ui/Title';
 
 const NewAraval = async() => {
-    const response = "http://localhost:3000/api/product"
+    const response = "https://shopfy-ten.vercel.app/api/product"
     const productData = await GetData(response)
   return (
     <div>

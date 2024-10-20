@@ -5,7 +5,7 @@ import Card from "../ui/Card"
 
 
 const Trending =async () => {
- const incomingData = "http://localhost:3000/api/product";
+ const incomingData = "local_envern_mentapi/product";
  const product = await GetData(incomingData)
  console.log("data",product)
   return (

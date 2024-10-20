@@ -10,7 +10,7 @@ const Eletronic = () => {
     useEffect(() => {
         const allCatagoryData = async () => {
             try {
-                const response = "http://localhost:3000/api/product";
+                const response = "https://shopfy-ten.vercel.app/api/product";
                 const result = await GetData(response);
                 setCatagory(result);
             } catch (error) {
@@ -22,7 +22,7 @@ const Eletronic = () => {
 
     const catagoryHandeler = async (catagory) => {
         try {
-            const response = `http://localhost:3000/api/catagory/${catagory}`;
+            const response = `https://shopfy-ten.vercel.app/api/catagory/${catagory}`;
             const result = await GetData(response);
             setCatagory(result);
         } catch (error) {

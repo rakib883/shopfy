@@ -16,7 +16,7 @@ const HeaderInput = () => {
   useEffect(() => {
     const filterData = async () => {
       try {
-        const allProduct = await GetData("http://localhost:3000/api/product");
+        const allProduct = await GetData("https://shopfy-ten.vercel.app/api/product");
         setAllProduct(allProduct);
       } catch (error) {
         console.error("Failed to fetch products:", error);

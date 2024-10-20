@@ -26,8 +26,8 @@ export const POST = async (request) => {
         payment_method_types:["card"],
         line_items:productItem,
         mode:"payment",
-        success_url:`http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url:"http://localhost:3000/success",
+        success_url:`local_envern_mentsuccess?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url:"local_envern_mentsuccess",
         metadata:{
             email
         }

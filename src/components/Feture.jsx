@@ -2,7 +2,7 @@ import Title from "../components/ui/Title"
 import { GetData } from "../lib/GetData"
 
 const Feture = async() => {
-    const response = "http://localhost:3000/api/product"
+    const response = "https://shopfy-ten.vercel.app/api/product"
     const product = await GetData(response)
   return (
     <div>

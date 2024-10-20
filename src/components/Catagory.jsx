@@ -3,19 +3,19 @@ import Image from 'next/image';
 import { GetData } from '../lib/GetData';
 const Catagory = async() => {
     // beuty area start
-   const Beuty =  "http://localhost:3000/api/catagory/beauty"
+   const Beuty =  "https://shopfy-ten.vercel.app/api/catagory/beauty"
    const beutyData = await GetData(Beuty)
 
    //Fragrances area start 
-   const Fragrances = "http://localhost:3000/api/catagory/fragrances"
+   const Fragrances = "https://shopfy-ten.vercel.app/api/catagory/fragrances"
    const FragrancesData = await GetData(Fragrances)
 
   //furniture area start
-  const furniture = "http://localhost:3000/api/catagory/furniture"
+  const furniture = "https://shopfy-ten.vercel.app/api/catagory/furniture"
   const furnitureData = await GetData(furniture)
 
   // groceries  area start
-  const groceries = "http://localhost:3000/api/catagory/groceries"
+  const groceries = "https://shopfy-ten.vercel.app/api/catagory/groceries"
   const groceriesData = await GetData(groceries)
 
   return (
