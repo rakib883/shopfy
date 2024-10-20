@@ -4,9 +4,9 @@ import Catagory from "../components/Catagory"
 import Faceleties from "../components/Faceleties"
 import Banner from "../components/Banner"
 import Eletronic from "../components/Eletronic"
-import BottomSlider from "../components/bottomSlider/BottomSlider"
-import NewAraval from "../components/newArrival/NewAraval"
-import Feture from "../components/fetureArea/Feture";
+import BottomSlider from "../components/BottomSlider"
+import NewAraval from "../components/NewAraval"
+import Feture from "../components/Feture";
 function page() {
   return (
     <div>
