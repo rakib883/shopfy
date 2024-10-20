@@ -1,7 +1,7 @@
 import React from 'react'
-import SwipeToSlide from '../../lib/SlickSlider/SlickSlider';
-import { GetData } from '../../lib/GetData';
-import Title from '../ui/Title';
+import SwipeToSlide from '../lib/SlickSlider/SlickSlider';
+import { GetData } from '../lib/GetData';
+import Title from '../components/ui/Title';
 
 const NewAraval = async() => {
     const response = "http://localhost:3000/api/product"
