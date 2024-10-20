@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { GetData } from '../../lib/GetData';
-import Card from '../ui/Card';
-import Title from '../ui/Title';
+import { GetData } from '../lib/GetData';
+import Card from '../components/ui/Card';
+import Title from '../components/ui/Title';
 
 const Eletronic = () => {
     const [allCatagoryProduct, setCatagory] = useState([]);
