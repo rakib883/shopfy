@@ -1,7 +1,7 @@
 "use client";
 import { React, useEffect, useRef, useState } from 'react';
 import { CiSearch } from "react-icons/ci";
-import { GetData } from '../../lib/GetData';
+import { GetData } from '../lib/GetData';
 import Link from 'next/link';
 
 const HeaderInput = () => {
