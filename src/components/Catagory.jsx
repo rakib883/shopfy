@@ -1,6 +1,6 @@
 
 import Image from 'next/image';
-import { GetData } from '../../lib/GetData';
+import { GetData } from '../lib/GetData';
 const Catagory = async() => {
     // beuty area start
    const Beuty =  "http://localhost:3000/api/catagory/beauty"
