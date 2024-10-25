@@ -40,7 +40,7 @@ const Card = ({item}) => {
             <div className="image h-[200px] relative overflow-hidden group">
                 <Link href={{
                     pathname:`/single-product/${id}`,
-                    query:{id:id}
+                    query:{id}
                 }}>
                     <Image className=" group-hover:scale-110 duration-300 object-contain w-full h-full" src={images[0]} height={300} width={300} alt="product"/>
                 </Link>

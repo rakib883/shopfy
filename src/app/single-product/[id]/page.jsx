@@ -15,7 +15,8 @@
 
 const page = async ({searchParams  }) => {
  const {id} = searchParams
- const response = (`local_envern_mentapi/single-product/${id}`)
+
+ const response = (`http://localhost:3000/api/single-product/${id}`)
  const productData = await GetData(response)
 
 //  catagory slider data faching area start
