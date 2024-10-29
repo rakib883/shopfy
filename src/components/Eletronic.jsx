@@ -11,6 +11,7 @@ const Eletronic = () => {
         const allCatagoryData = async () => {
             try {
                 const response = `https://shopfy-steel.vercel.app/api/product`
+               
                 console.log(response)
                 const result = await GetData(response);
                 setCatagory(result);
@@ -23,7 +24,7 @@ const Eletronic = () => {
 
     const catagoryHandeler = async (catagory) => {
         try {
-            const response = `https://shopfy-steel.vercel.app/api/catagory/${catagory}`;
+            const response = `https://shopfy-steel.vercel.app/${catagory}`;
             const result = await GetData(response);
             setCatagory(result);
         } catch (error) {

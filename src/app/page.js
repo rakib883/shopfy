@@ -2,6 +2,7 @@
 import Trending from "../components/Trending";
 import Catagory from "../components/Category"
 import Faceleties from "../components/Faceleties"
+import Slider from "../components/Slider"
 import Banner from "../components/Banner"
 import Eletronic from "../components/Eletronic"
 import BottomSlider from "../components/BottomSlider"
@@ -11,15 +12,15 @@ function page() {
   return (
     <div>
       <div className="">
-      
-          <Catagory/> 
-          <Faceleties/> 
-          <Trending/>
-          <Banner/>
-          <Eletronic/>
-          <BottomSlider/>
-          {/* <NewAraval/>
-          <Feture/>  */}
+           <Slider/>
+           <Catagory/> 
+           <Faceleties/> 
+           <Trending/>
+           <Banner/>
+           <Eletronic/>
+           <BottomSlider/> 
+           <NewAraval/>
+           <Feture/> 
       </div>
     </div>
   )
