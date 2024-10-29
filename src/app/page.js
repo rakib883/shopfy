@@ -2,7 +2,7 @@
 import Trending from "../components/Trending";
 import Catagory from "../components/Category"
 import Faceleties from "../components/Faceleties"
-import Slider from "../components/Slider"
+import Hero from "../components/Hero"
 import Banner from "../components/Banner"
 import Eletronic from "../components/Eletronic"
 import BottomSlider from "../components/BottomSlider"
@@ -12,7 +12,7 @@ function page() {
   return (
     <div>
       <div className="">
-           <Slider/>
+           <Hero/>
            <Catagory/> 
            <Faceleties/> 
            <Trending/>
