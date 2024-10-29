@@ -6,12 +6,11 @@ import Title from '../components/ui/Title';
 
 const Eletronic = () => {
     const [allCatagoryProduct, setCatagory] = useState([]);
-    console.log("dont get data",allCatagoryProduct)
 
     useEffect(() => {
         const allCatagoryData = async () => {
             try {
-                const response =`${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/product`
+                const response = `https://shopfy-steel.vercel.app/api/product`
                 const result = await GetData(response);
                 setCatagory(result);
             } catch (error) {
@@ -23,7 +22,7 @@ const Eletronic = () => {
 
     const catagoryHandeler = async (catagory) => {
         try {
-            const response = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/${catagory}`;
+            const response = `https://shopfy-steel.vercel.app/api/catagory/${catagory}`;
             const result = await GetData(response);
             setCatagory(result);
         } catch (error) {
