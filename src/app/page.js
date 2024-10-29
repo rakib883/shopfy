@@ -1,4 +1,4 @@
-import Slider from "../components/Slider"
+
 import Trending from "../components/Trending";
 import Catagory from "../components/Category"
 import Faceleties from "../components/Faceleties"
@@ -11,7 +11,7 @@ function page() {
   return (
     <div>
       <div className="">
-         <Slider/>
+      
           <Catagory/> 
           <Faceleties/> 
           <Trending/>
