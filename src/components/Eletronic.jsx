@@ -6,11 +6,12 @@ import Title from '../components/ui/Title';
 
 const Eletronic = () => {
     const [allCatagoryProduct, setCatagory] = useState([]);
+    console.log("dont get data",allCatagoryProduct)
 
     useEffect(() => {
         const allCatagoryData = async () => {
             try {
-                const response = "/api/product";
+                const response =`${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/product`
                 const result = await GetData(response);
                 setCatagory(result);
             } catch (error) {
@@ -22,7 +23,7 @@ const Eletronic = () => {
 
     const catagoryHandeler = async (catagory) => {
         try {
-            const response = `/api/catagory/${catagory}`;
+            const response = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/${catagory}`;
             const result = await GetData(response);
             setCatagory(result);
         } catch (error) {
