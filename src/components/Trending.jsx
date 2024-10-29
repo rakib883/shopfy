@@ -5,7 +5,7 @@ import Card from "../components/ui/Card"
 
 
 const Trending =async () => {
- const incomingData = "https://shopfy-ten.vercel.app/api/product";
+ const incomingData = "/api/product";
  const product = await GetData(incomingData)
  console.log("data",product)
   return (

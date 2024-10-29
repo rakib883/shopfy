@@ -1,27 +1,27 @@
 
-// import Image from 'next/image';
-// import { GetData } from '../lib/GetData';
+import Image from 'next/image';
+import { GetData } from '../lib/GetData';
 const Catagory = async() => {
-//     // beuty area start
-//    const Beuty =  "https://shopfy-ten.vercel.app/api/catagory/beauty"
-//    const beutyData = await GetData(Beuty)
+    // beuty area start
+   const Beuty =  "/api/catagory/beauty"
+   const beutyData = await GetData(Beuty)
 
-//    //Fragrances area start 
-//    const Fragrances = "https://shopfy-ten.vercel.app/api/catagory/fragrances"
-//    const FragrancesData = await GetData(Fragrances)
+   //Fragrances area start 
+   const Fragrances = "/api/catagory/fragrances"
+   const FragrancesData = await GetData(Fragrances)
 
-//   //furniture area start
-//   const furniture = "https://shopfy-ten.vercel.app/api/catagory/furniture"
-//   const furnitureData = await GetData(furniture)
+  //furniture area start
+  const furniture = "/api/catagory/furniture"
+  const furnitureData = await GetData(furniture)
 
-//   // groceries  area start
-//   const groceries = "https://shopfy-ten.vercel.app/api/catagory/groceries"
-//   const groceriesData = await GetData(groceries)
+  // groceries  area start
+  const groceries = "/api/catagory/groceries"
+  const groceriesData = await GetData(groceries)
 
   return (
     <div>
         <div className="content mx-20 mt-10">
-           {/* <div className="item grid grid-cols-5 ">
+           <div className="item grid grid-cols-5 ">
                 <div className="items flex justify-center items-center flex-col gap-2 cursor-pointer  ">
                     <div className="image flex overflow-hidden  bg-[#e2f1ff] rounded-full h-[180px] w-[180px]">
                        <Image className=" h-full w-full hover:scale-110 duration-300" src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png" height={150} width={150} alt="category" />
@@ -67,7 +67,7 @@ const Catagory = async() => {
                          <p className=" font-semibold">0 products</p>
                     </div>
                 </div>
-           </div> */}
+           </div>
         </div>
     </div>
   );

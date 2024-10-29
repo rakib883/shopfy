@@ -16,11 +16,11 @@
 const page = async ({searchParams  }) => {
  const {id} = searchParams
 
- const response = (`https://shopfy-ten.vercel.app/api/single-product/${id}`)
+ const response = (`/api/single-product/${id}`)
  const productData = await GetData(response)
 
 //  catagory slider data faching area start
-const catagory = (`https://shopfy-ten.vercel.app/api/catagory/${productData?.category}`)
+const catagory = (`/api/catagory/${productData?.category}`)
 const catagoryData = await GetData(catagory)
 
   return (

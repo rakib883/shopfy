@@ -1,25 +1,25 @@
 import Slider from "../components/slider"
-import Trending from "../components/Trending";
+// import Trending from "../components/Trending";
 import Catagory from "../components/Catagory"
 import Faceleties from "../components/Faceleties"
-import Banner from "../components/Banner"
-import Eletronic from "../components/Eletronic"
-import BottomSlider from "../components/BottomSlider"
-import NewAraval from "../components/NewAraval"
-import Feture from "../components/Feture";
+// import Banner from "../components/Banner"
+// import Eletronic from "../components/Eletronic"
+// import BottomSlider from "../components/BottomSlider"
+// import NewAraval from "../components/NewAraval"
+// import Feture from "../components/Feture";
 function page() {
   return (
     <div>
       <div className="">
          <Slider/>
-         <Catagory/>
-         <Faceleties/>
-         <Trending/>
+         {/* <Catagory/> */}
+         {/* <Faceleties/> */}
+         {/* <Trending/>
          <Banner/>
          <Eletronic/>
          <BottomSlider/>
          <NewAraval/>
-         <Feture/>
+         <Feture/> */}
       </div>
     </div>
   )
