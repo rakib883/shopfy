@@ -4,9 +4,9 @@ import Catagory from "../components/Category"
 import Faceleties from "../components/Faceleties"
 import Banner from "../components/Banner"
 import Eletronic from "../components/Eletronic"
-// import BottomSlider from "../components/BottomSlider"
-// import NewAraval from "../components/NewAraval"
-// import Feture from "../components/Feture";
+import BottomSlider from "../components/BottomSlider"
+import NewAraval from "../components/NewAraval"
+import Feture from "../components/Feture";
 function page() {
   return (
     <div>
@@ -17,11 +17,9 @@ function page() {
           <Trending/>
           <Banner/>
           <Eletronic/>
-          {/* 
-         
-         <BottomSlider/>
-         <NewAraval/>
-         <Feture/>  */}
+          <BottomSlider/>
+          {/* <NewAraval/>
+          <Feture/>  */}
       </div>
     </div>
   )

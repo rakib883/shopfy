@@ -16,11 +16,11 @@
 const page = async ({searchParams  }) => {
  const {id} = searchParams
 
- const response = (`/api/single-product/${id}`)
+ const response = (`${process.env.PRODECTION_DEVELOPMENT}/api/single-product/${id}`)
  const productData = await GetData(response)
 
 //  catagory slider data faching area start
-const catagory = (`/api/catagory/${productData?.category}`)
+const catagory = (`${process.env.PRODECTION_DEVELOPMENT}/api/catagory/${productData?.category}`)
 const catagoryData = await GetData(catagory)
 
   return (

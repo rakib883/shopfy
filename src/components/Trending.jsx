@@ -5,7 +5,7 @@ import Card from "../components/ui/Card"
 
 
 const Trending =async () => {
- const incomingData = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/product`; 
+ const incomingData = `${process.env.PRODECTION_DEVELOPMENT}/api/product`; 
  const product = await GetData(incomingData)
  console.log("data",product)
   return (

@@ -3,19 +3,19 @@ import Image from 'next/image';
 import { GetData } from '../lib/GetData';
 const Catagory = async() => {
     // beuty area start
-   const Beuty = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/fragrances`
+   const Beuty = `${process.env.PRODECTION_DEVELOPMENT}/api/catagory/fragrances`
    const beutyData = await GetData(Beuty)
 
    //Fragrances area start 
-   const Fragrances = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/fragrances` 
+   const Fragrances = `${process.env.PRODECTION_DEVELOPMENT}/api/catagory/fragrances` 
    const FragrancesData = await GetData(Fragrances)
 
   //furniture area start
-  const furniture = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/furniture` 
+  const furniture = `${process.env.PRODECTION_DEVELOPMENT}/api/catagory/furniture` 
   const furnitureData = await GetData(furniture)
 
   // groceries  area start
-  const groceries = `${process.env.PRODECTION_DEVELOPMENT || process.env.LOCALLY_DEVELOPMENT}/api/catagory/groceries` 
+  const groceries = `${process.env.PRODECTION_DEVELOPMENT}/api/catagory/groceries` 
   const groceriesData = await GetData(groceries)
 
   return (

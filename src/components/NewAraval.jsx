@@ -4,7 +4,7 @@ import { GetData } from '../lib/GetData';
 import Title from '../components/ui/Title';
 
 const NewAraval = async() => {
-    const response = "/api/product"
+    const response = "http://localhost:3000/api/product"
     const productData = await GetData(response)
   return (
     <div>
